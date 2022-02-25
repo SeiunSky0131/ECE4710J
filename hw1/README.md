@@ -1,2 +1,2 @@
 # About
-Homework 1, just some preparation for this course.
+Homework 1, just some preparations for this course.
