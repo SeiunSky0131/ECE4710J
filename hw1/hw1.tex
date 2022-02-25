@@ -1,0 +1,162 @@
+\documentclass[12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{biblatex}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{supertabular}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{ulem}
+\usepackage{cases}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{indentfirst}
+\usepackage{enumerate}
+\usepackage{makecell}
+\usepackage{floatrow}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{amssymb}
+\graphicspath{images/}
+\renewcommand\thesection{\arabic{section}}
+
+\title
+{
+    {ECE4710J Assignment 1}
+}
+\author
+{
+        {Name: Zhou Haoquan}\\
+        {ID:519370910059}\\        
+}
+\date{Feb 2022}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section{Fundamental Linear Algebra}
+\subsection*{a)}
+\begin{center}
+    $B = \begin{bmatrix}
+    2 & 2 & 2 \\
+    5 & 8 & 0 \\
+    0 & 2 & 3 \\
+    0 & 0 & 10
+    \end{bmatrix}$
+\end{center}
+
+\subsection*{b)}
+\begin{center}
+    $ A = \begin{bmatrix}
+    2 & 1 & 0 & 0 \\
+    1 & 1 & 1 & 1 \\
+    0 & 0 & 0 & 10
+    \end{bmatrix}
+    $
+\end{center}
+
+\subsection*{c)}
+We first multiple $A$ and $B$ to get
+\begin{center}
+    $ AB = \begin{bmatrix}
+      9 & 12 & 4 \\
+      7 & 12 & 15 \\
+      0 & 0 & 100
+    \end{bmatrix} 
+    $
+\end{center}
+now we can assume $v_{2}$ is
+\begin{center}
+    $ v_{2} = \begin{bmatrix}
+        x \\
+        y \\
+        z
+    \end{bmatrix}
+    $
+\end{center}
+by multiplying two matrices above, we can write the equations
+\begin{center}
+    $\begin{cases}
+        9x + 12y + 4z = 80 \\
+        7x + 12y + 15z = 80 \\
+        0x + 0y + 100z = 100
+    \end{cases}$
+\end{center}
+which gives us the result
+\begin{center}
+    $ v_{2} = \begin{bmatrix}
+        \frac{11}{2} \\
+        \frac{53}{24} \\
+        1
+    \end{bmatrix}
+    $
+\end{center}
+
+\section{Calculus}
+\subsection*{a)}
+\begin{center}
+    $\sigma(-x) = \frac{1}{1+e^{x}}$ \\
+    $1- \sigma(x) = 1- \frac{1}{1+e^{-x}} = \frac{e^{-x}}{1+ e^{-x}} = \frac{1}{e^{x}+1}$ \\
+    $\Rightarrow \sigma(-x) = 1 - \sigma(x)$
+\end{center}
+
+\subsection*{b)}
+\begin{center}
+    $\frac{d}{dx}\sigma(x) = \frac{e^{-x}}{1+2e^{-x} + e^{-2x}} = \frac{1}{e^{x}+e^{-x}+2}$ \\ 
+    $\sigma(x)(1-\sigma(x)) = \frac{1}{1+e^{-x}}\frac{1}{1+e^{x}} = \frac{1}{e^{x}+e^{-x}+2}$ \\ 
+    $\Rightarrow \frac{d}{dx}\sigma(x) = \sigma(x)(1-\sigma(x))$
+\end{center}
+
+\subsection*{c)}
+\begin{center}
+    \includegraphics[scale = 0.5]{Figure_1.png}
+\end{center}
+
+\section{Minimization}
+We take the derivative of $f(c)$ and get
+\begin{center}
+    $f^{'}(c) = \frac{2}{n}\sum_{i=1}^{n}(c - x_{i})$
+\end{center}
+Now we want this derivative to be zero, that is
+$$
+    nc - \sum_{i=1}^{n}x_{i} = 0 \\ 
+    \Rightarrow c = \frac{\sum_{i = 1}^{n}x_{i}}{n}
+$$
+Then we want to prove that this is a minimum, we calculate the second derivative of $f(c)$
+$$
+    f^{''}(c) = 2 >0 \Rightarrow f^{''}(\frac{\sum_{i = 1}^{n}x_{i}}{n}) = 2 >0
+$$
+Now we can verify that
+$$
+    c=\frac{\sum_{i = 1}^{n}x_{i}}{n}
+$$
+is indeed the minimum.
+
+\section{Probability}
+To make it easy, we assume that there are 100 women in this age. Then we can tell according to
+the probability that 1 of them have breast cancer and 99 of them are healthy.
+\par
+Then for the real patient, it contributes $1 \times 0.8 = 0.8$ positive reuslt and $1 \times 0.2 = 0.2$ negative result.
+\par
+For the healthy ones, it contributes $99 \times 9.6\% = 9.504$ positive result and $99 \times 90.4\% = 89.496$ negative result.
+\par
+Now we have this woman tested positive, which means that she can have $\frac{0.8}{0.8+9.504}=7.764\%$ to actually have breast cancer.
+\par
+\textbf{Use Bayes's Rule can get the same result}.
+
+\section{Statistics}
+We calculate the posibility based on whether the students are Canadian or not. This obeys the Binomial Distribution. We try to approximate
+Binomial Distribution using Normal Distribution.
+\par
+Then we can calculate the standard deviation of the corresponding Normal Distribution. We can then use the conclusion that the probability
+for a normal random variable lies in two standard deviations is $95\%$ in Normal Distribution. We can then find that if the $\sigma = 6.1$,
+two standard deviations can almost contain $95\%$ of the random varaibles. Then we can conclude that the standard deviation is about \textbf{b) 6.1}.
+
+
+
+
+\end{document}
